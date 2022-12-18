@@ -7,7 +7,6 @@ from controlls import start_fishing
 
 sleep(1)
 with mss() as sct:
-
     monitor = sct.monitors[1]
     img = np.asarray(sct.grab(monitor))
     start_fishing(is_right(img))
