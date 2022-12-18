@@ -3,14 +3,11 @@ from time import sleep
 import numpy as np
 from image_seg import is_right
 import cv2
-
-i = 0 
+from controlls import start_fishing
+sleep(1)
 with mss() as sct:
-    while i < 20:
-        monitor = sct.monitors[1]
-        img = np.asarray(sct.grab(monitor))
-        if is_right(img):
-            print('СПРАВА')
-        else:
-            print('СЛЕВА')
-        i += 1       
+
+    monitor = sct.monitors[1]
+    img = np.asarray(sct.grab(monitor))
+    start_fishing(is_right(img))
+       

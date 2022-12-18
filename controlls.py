@@ -1,11 +1,13 @@
 import pyautogui
 import time
-import PIL
-time.sleep(5)
-
 W, H = pyautogui.size()
 x, y = pyautogui.position()
-pyautogui.moveTo(W/2-100, H/2)
-pyautogui.click()
-pyautogui.click()
-pyautogui.click()
+
+def start_fishing(right):
+    if right:
+        pyautogui.moveTo(W//2+100, H//2)
+    else:
+        pyautogui.moveTo(W//2-100, H//2)
+    pyautogui.mouseDown()
+    time.sleep(0.2)
+    pyautogui.mouseUp()
